@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://localhost:9000/bootstrap/css/bootstrap.min.css" />
+    <title>Produit Web Application</title>
+
+    <style>
+        body {
+            padding-top: 50px;
+        }
+
+        .special {
+            padding-top: 50px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" href=".">Système de gestion des produits</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container special">
+        <div class="d-flex justify-content-between mb-3">
+            <h2 class="h2">Liste des employées</h2>
+            <button class="btn btn-primary"><a th:href="@{/createProduit}" class="text-white text-decoration-none">Nouveau produit</a></button>
+        </div>
+        <div class="table-responsive">
+            <table class="table table-striped table-sm">
+                <thead>
+                    <tr>
+                        <th class="text-center">Nom</th>
+                        <th class="text-center">Price</th>
+                        <th class="text-center">Currency</th>
+                        <th class="text-center">Taxe</th>
+                        <th class="text-center">Date d'expiration</th>
+                        <th class="text-center">Fabricant</th>
+                        <th class="text-center">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:if="${produits.empty}">
+                        <td colspan="3">Aucun employée en base de données</td>
+                    </tr>
+                    <tr th:each="produit: ${produits}">
+                        <td class="text-center align-middle"><span th:text="${produit.name}"></span></td>
+                        <td class="text-center align-middle"><span th:text="${produit.price}"></span></td>
+                        <td class="text-center align-middle"><span th:text="${produit.currency}"></span></td>
+                        <td class="text-center align-middle"><span th:text="${produit.taxe}"></span></td>
+                        <td class="text-center align-middle"><span th:text="${produit.expired_at}"></span></td>
+                        <td class="text-center align-middle"><span th:text="${produit.produced_by}"></span></td>
+                        <td class="d-flex align-items-center justify-content-evenly">
+                            <a th:href="@{/updateProduit/{id}(id=${produit.id})}"><button
+                                    class="btn btn-info">Modifier</button></a>
+                            <a th:href="@{/deleteProduit/{id}(id=${produit.id})}"><button
+                                    class="btn btn-danger">Supprimer</button></a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+
+</html>
