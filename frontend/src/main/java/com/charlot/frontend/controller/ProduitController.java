@@ -38,16 +38,14 @@ public class ProduitController {
 
     @GetMapping("/createProduit")
     public String createProduit(Model model) {
-        Produit e = new Produit();
-        model.addAttribute("produit", e);
+        model.addAttribute("produit", new Produit());
         return "formNewProduit";
     }
 
     @PostMapping("/saveProduit")
-    public ModelAndView saveProduit(@ModelAttribute Produit produit) {
-        Produit e = service.saveProduit(produit);
-        System.out.println(e);
-        return new ModelAndView("redirect:/");
+    public String save(@ModelAttribute("produit") Produit produit) {
+        service.saveProduit(produit);
+        return "redirect:/";
     }
 
     @GetMapping("/deleteProduit/{id}")
