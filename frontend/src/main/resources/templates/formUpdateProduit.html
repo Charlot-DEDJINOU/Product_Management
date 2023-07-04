@@ -40,9 +40,9 @@
                 margin: 0px auto;
             }
         }
+
     </style>
 </head>
-
 <body>
     <nav class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
@@ -55,43 +55,43 @@
     <div class="container special">
         <h2 class="h2 text-center">Modification d'un produit</h2>
         <div>
-            <form th:action="@{/save}" method="post" class="form">
+            <form method="post" th:action="@{/saveProduit}" th:object="${produit}" class="form">
                 <div class="form-group mb-3">
-                    <input type="hidden" name="id" th:text="${produit.id}" class="form-control" />
+                    <input type="hidden" th:field="*{id}" class="form-control" >
                 </div>
                 <div class="form-group mb-3">
                     <label for="nameInput">Nom du produit</label>
-                    <input type="text" name="name" th:text="${produit.name}" class="form-control" id="nameInput"
-                        aria-describedby="nameHelp" placeholder="Saisir le nom" /> <small id="nameHelp"
+                    <input type="text" th:field="*{name}" class="form-control" id="nameInput"
+                        aria-describedby="nameHelp" placeholder="Saisir le nom" > <small id="nameHelp"
                         class="form-text text-muted">Merci d'entrer le nom du produit.</small>
                 </div>
                 <div class="form-group mb-3">
                     <label for="priceInput">Price</label>
-                    <input type="number" name="price" th:text="${produit.price}" class="form-control" id="priceInput" priceInput=""
-                        aria-describedby="priceHelp" placeholder="Saisir le prix" /> <small id="priceHelp"
+                    <input type="number" th:field="*{price}" class="form-control" id="priceInput" priceInput=""
+                        aria-describedby="priceHelp" placeholder="Saisir le prix" > <small id="priceHelp"
                         class="form-text text-muted">Merci de donner un prix au produit</small>
                 </div>
                 <div class="form-group mb-3">
                     <label for="taxeInput">Taxe</label>
-                    <input type="number" name="taxe" th:text="${produit.taxe}" class="form-control" id="taxeInput"
-                        aria-describedby="taxeHelp" placeholder="taxe" /> <small id="taxeHelp"
+                    <input type="number" th:field="*{taxe}" class="form-control" id="taxeInput"
+                        aria-describedby="taxeHelp" placeholder="taxe" > <small id="taxeHelp"
                         class="form-text text-muted">Merci de donner taxe</small>
                 </div>
                 <div class="form-group mb-3">
                     <label for="currencyInput">Currency</label>
-                    <input type="text" name="currency" th:text="${produit.currency}" class="form-control" id="currencyInput"
-                        aria-describedby="currencyHelp" placeholder="EUR , FCFA " /> <small id="currencyHelp"
+                    <input type="text" th:field="*{currency}" class="form-control" id="currencyInput"
+                        aria-describedby="currencyHelp" placeholder="EUR , FCFA " > <small id="currencyHelp"
                         class="form-text text-muted">Merci de donner la monnaie.</small>
                 </div>
                 <div class="form-group mb-3">
                     <label for="Expired_atInput">Expired_at</label>
-                    <input type="datetime" name="expired_at" th:text="${produit.expired_at}" class="form-control" id="Expired_atInput"
-                        Expired_atInput="" aria-describedby="Expired_atHelp" /> <small id="Expired_atHelp"
+                    <input type="datetime" th:field="*{expired_at}" class="form-control" id="Expired_atInput"
+                        Expired_atInput="" aria-describedby="Expired_atHelp" > <small id="Expired_atHelp"
                         class="form-text text-muted">Merci de donner une date d'expiration</small>
                 </div>
                 <div class="form-group mb-3">
                     <label for="produced_byInput">Fabricant</label>
-                    <input type="text" name="produced_by" th:text="${produit.produced_by}" class="form-control" id="produced_byInput"
+                    <input type="text" th:field="*{produced_by}" class="form-control" id="produced_byInput"
                         aria-describedby="produced_byHelp" placeholder="charlot" /> <small id="mailHelp"
                         class="form-text text-muted">Merci de donner le nom du fabricant</small>
                 </div>
@@ -100,5 +100,4 @@
         </div>
     </div>
 </body>
-
 </html>

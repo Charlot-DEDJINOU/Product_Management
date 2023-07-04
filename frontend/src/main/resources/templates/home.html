@@ -35,11 +35,11 @@
                     <tr>
                         <th class="text-center">Nom</th>
                         <th class="text-center">Price</th>
-                        <th class="text-center">Currency</th>
                         <th class="text-center">Taxe</th>
-                        <th class="text-center">Date d'expiration</th>
-                        <th class="text-center">Fabricant</th>
-                        <th class="text-center">Action</th>
+                        <th class="text-center">Currency</th>
+                        <th class="text-center">Expired At</th>
+                        <th class="text-center">Producced By</th>
+                        <th class="text-center">Actions</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -49,8 +49,8 @@
                     <tr th:each="produit: ${produits}">
                         <td class="text-center align-middle"><span th:text="${produit.name}"></span></td>
                         <td class="text-center align-middle"><span th:text="${produit.price}"></span></td>
-                        <td class="text-center align-middle"><span th:text="${produit.currency}"></span></td>
                         <td class="text-center align-middle"><span th:text="${produit.taxe}"></span></td>
+                        <td class="text-center align-middle"><span th:text="${produit.currency}"></span></td>
                         <td class="text-center align-middle"><span th:text="${produit.expired_at}"></span></td>
                         <td class="text-center align-middle"><span th:text="${produit.produced_by}"></span></td>
                         <td class="d-flex align-items-center justify-content-evenly">
