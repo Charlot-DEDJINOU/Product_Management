@@ -1,14 +1,17 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhml" xmlns:th="http://www.thymeleaf.org">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="http://localhost:9000/bootstrap/css/bootstrap.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet" />
     <title>Produit Web Application</title>
     <style>
         body {
             padding-top: 50px;
+            font-family: 'Roboto', sans-serif;
         }
 
         .special {
@@ -40,64 +43,55 @@
                 margin: 0px auto;
             }
         }
-
     </style>
 </head>
+
 <body>
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <a class="navbar-brand" href=".">Système de gestion des
-                    produit</a>
-            </div>
-        </div>
-    </nav>
-    <div class="container special">
-        <h2 class="h2 text-center">Modification d'un produit</h2>
+    <div class="container">
+        <h2 class="h3 fw-bold text-center">Modification d'un produit</h2>
         <div>
             <form method="post" th:action="@{/saveProduit}" th:object="${produit}" class="form">
                 <div class="form-group mb-3">
-                    <input type="hidden" th:field="*{id}" class="form-control" >
+                    <input type="hidden" th:field="*{id}" class="form-control">
                 </div>
                 <div class="form-group mb-3">
                     <label for="nameInput">Nom du produit</label>
                     <input type="text" th:field="*{name}" class="form-control" id="nameInput"
-                        aria-describedby="nameHelp" placeholder="Saisir le nom" > <small id="nameHelp"
-                        class="form-text text-muted">Merci d'entrer le nom du produit.</small>
+                        aria-describedby="nameHelp" required />
                 </div>
                 <div class="form-group mb-3">
                     <label for="priceInput">Price</label>
                     <input type="number" th:field="*{price}" class="form-control" id="priceInput" priceInput=""
-                        aria-describedby="priceHelp" placeholder="Saisir le prix" > <small id="priceHelp"
-                        class="form-text text-muted">Merci de donner un prix au produit</small>
+                        aria-describedby="priceHelp" placeholder="Saisir le prix" required />
                 </div>
                 <div class="form-group mb-3">
                     <label for="taxeInput">Taxe</label>
                     <input type="number" th:field="*{taxe}" class="form-control" id="taxeInput"
-                        aria-describedby="taxeHelp" placeholder="taxe" > <small id="taxeHelp"
-                        class="form-text text-muted">Merci de donner taxe</small>
+                        aria-describedby="taxeHelp" required />
                 </div>
                 <div class="form-group mb-3">
                     <label for="currencyInput">Currency</label>
                     <input type="text" th:field="*{currency}" class="form-control" id="currencyInput"
-                        aria-describedby="currencyHelp" placeholder="EUR , FCFA " > <small id="currencyHelp"
-                        class="form-text text-muted">Merci de donner la monnaie.</small>
+                        aria-describedby="currencyHelp" placeholder="EUR , FCFA " required />
                 </div>
                 <div class="form-group mb-3">
-                    <label for="Expired_atInput">Expired_at</label>
-                    <input type="datetime" th:field="*{expired_at}" class="form-control" id="Expired_atInput"
-                        Expired_atInput="" aria-describedby="Expired_atHelp" > <small id="Expired_atHelp"
-                        class="form-text text-muted">Merci de donner une date d'expiration</small>
+                    <label for="Expired_atInput">Date d'expiration</label>
+                    <input type="date" th:field="*{expired_at}" class="form-control" id="Expired_atInput"
+                        Expired_atInput="" aria-describedby="Expired_atHelp" required />
                 </div>
                 <div class="form-group mb-3">
                     <label for="produced_byInput">Fabricant</label>
                     <input type="text" th:field="*{produced_by}" class="form-control" id="produced_byInput"
-                        aria-describedby="produced_byHelp" placeholder="charlot" /> <small id="mailHelp"
-                        class="form-text text-muted">Merci de donner le nom du fabricant</small>
+                        aria-describedby="produced_byHelp" required />
                 </div>
-                <button type="submit" class="btn btn-primary">Modifier</button>
+                <div class="d-flex align-items-center justify-content-between">
+                    <a th:href="@{/}" class="text-white p-2 text-decoration-none"
+                        style="background-color: rgba(0,0,0,0.3); border-radius: 5px;">Retour</a>
+                    <button type="submit" class="btn btn-primary">Modifier</button>
+                </div>
             </form>
         </div>
     </div>
 </body>
+
 </html>

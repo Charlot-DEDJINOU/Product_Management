@@ -26,20 +26,20 @@ public class ProduitService {
     }
 
     public void deleteProduit(final int id) {
-        produitProxy.deleteProduit(id);;
+        produitProxy.deleteProduit(id);
     }
 
-     public Produit saveProduit(Produit produit) {
+    public Produit saveProduit(Produit produit) {
 
         Produit savedProduit;
 
-        if(produit.getId() == null) {
+        if (produit.getId() == null) {
             // Si l'id est nul, alors c'est un nouvel produit.
             savedProduit = produitProxy.createProduit(produit);
         } else {
             savedProduit = produitProxy.updateProduit(produit);
         }
-    
+
         return savedProduit;
     }
 
