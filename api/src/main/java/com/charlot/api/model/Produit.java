@@ -8,7 +8,6 @@ import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import java.util.Date;
 
 @Entity
 @Table(name = "tp_java_produits")
@@ -23,6 +22,6 @@ public class Produit {
     private Integer price;
     private String currency;
     private Integer taxe;
-    private Date expired_at;
+    private String expired_at;
     private String produced_by;
 }
